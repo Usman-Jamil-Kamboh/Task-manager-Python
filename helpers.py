@@ -1,7 +1,8 @@
-import json
+import datetime
 import jsondefs as j
 import inputvalidater as i 
 
+date = datetime.datetime.now()
 def add():
     tasks = j.downloadData()
 
@@ -18,6 +19,7 @@ def add():
     newtask = {
         "task_no" : next_id,
         "task" : task_name,
+        "Date" :  date.strftime("%x"),
         "completed" : False
     }
 
@@ -110,6 +112,7 @@ def watch():
             print(f"""
                 ID      : {task['task_no']}
                 Task    : {task['task']}
+                Date    : {task['Date']}
                 Status  : {status}
                 ---------------------------
                 """)
